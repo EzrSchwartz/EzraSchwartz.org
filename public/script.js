@@ -162,7 +162,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const projectsContainer = document.getElementById('awardsContainer');
-    const tocList = document.getElementById('tocList');
 
     function loadAwards() {
         projects.forEach((project, index) => {
@@ -174,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Generate ToC link for the project
             const tocLink = document.createElement('li');
             tocLink.innerHTML = `<a href=" #${project.link}">${project.name}</a>`;
-            tocList.appendChild(tocLink);
 
             // Add click event to ToC link
             tocLink.querySelector('a').addEventListener('click', (e) => {
