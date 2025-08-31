@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decentralized Ground Sensing Network - Ezra Schwartz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ProjectStyle.css">
+</head>
+<body>
+    <canvas id="tspCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
+
+    <header>
+        <nav>
+            <ul class="container">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#top">Project Details</a></li>
+                <li><a href="index.html#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section id="project" class="project-details">
+            <!-- project title styling with header 1 and a main-title class -->
+            <h1 align="center" style="color: aliceblue; padding: 30px"  class="main-title">Decentralized Ground Sensing Network</h1>
+            <!-- used a figure for the image to include the caption -->
+            <figure style="width: fit-content; margin: 0 auto;">
+                <div class="image-wrapper">
+                  <img src="Xiao.jpg" alt="Project Image" style="max-width:75%; width: 100%; display: block; margin-left: auto; margin-right: auto;">
+                </div>
+                <figcaption style="color: aliceblue; padding: 30px;">Base Transmiter Without Sensors Connected</figcaption>
+              </figure>
+
+              <p align="center" style=" color:black; flex-direction: column; background-color: white; border-radius: 8px; width: 90%; display: block; margin-left: auto; margin-right: auto; margin-top: 30px; margin-bottom: 30px; padding: 3%;">
+                The Decentralized Ground Sensor Network is designed to be a robust network of nodes that use a mesh network to communicate and is extremely cost effective. The idea behind this is a way to send data and have more robust networks by sharing the data throughout the sensors to prevent data loss. This network also works to minimize the distance you need to communicate back to the database by finding which node is closest to the database and then using that node to transmit the entire network's data back to the database. This allows many of the sensors to run on less power and one sensor needs to use higher power communication to the home database.             </p>
+
+                <div align="center"id="info" style="flex-direction: column; background-color: white; border-radius: 8px; width: 80%; display: block; margin-left: auto; margin-right: auto; margin-top: 30px; margin-bottom: 30px;">
+                    <h2 align="center" style="color: black;" >Key Features</h2>
+            <ul style="background-color: white;list-style: none;">
+                <div align="center">
+
+                <li style="color: black;">Efficient Transmission: Finds the closest node to the server's latitude and longitude, this is the node which will send all of the networks data to the server. </li>
+                <li style="color: black;">Adaptive Transmission: If the main transmission node goes out of commission then the next closest node with now be the transmission node.</li>
+                <li style="color: black;">Adaptable To Different Sensors: Can change out the sensor for other sensors so you can use different types of sensors with the network with minimal change to the code. </li>
+                </div>
+            </ul>
+
+            <h2 align="center" style="color: black;" >Technologies Used</h2>
+            <ul align="center"style="background-color: white;list-style: none;">
+                <div align="center">
+                <li style="color: black;">Mesh Network:</li>
+                <li style="color: black;">Socket Connection: Temporary Socket connection to the server but can easily be changed to a LORA connection if necessarry. </li>
+
+            </div>
+            </ul>
+            <p align="center" >Check out the <a href="https://github.com/EzrSchwartz/Ground-Sensing-Decentralized-Network">Project on GitHub</a></p>
+
+        </div>
+        </section>
+    </main>
+    <footer class="container">
+        <p>
+            Connect with me on <a href="https://www.linkedin.com/in/ezra-schwartz-64213b2ba/">LinkedIn</a> | <a href="https://github.com/EzrSchwartz">GitHub</a></p>
+    </footer>
+        <script src="tspanimation.js"></script>
+    </body>
+</html>

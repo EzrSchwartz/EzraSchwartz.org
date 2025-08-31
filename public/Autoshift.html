@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycling AutoShift - Ezra Schwartz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ProjectStyle.css">
+</head>
+
+<body>
+    
+    <canvas id="tspCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
+    
+    <header>
+        <nav>
+            <ul class="container">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#top">Project Details</a></li>
+                <li><a href="index.html#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section id="project" class="project-details">
+            <h1 align="center" style="color: aliceblue; padding: 30px"  class="main-title">Cycling AutoShift</h1>
+            <figure style="width: fit-content; margin: 0 auto;">
+                <div class="image-wrapper">
+                  <img src="Shifter.jpg" alt="Project Image" style="max-width:75%; width: 75%; display: block; margin-left: auto; margin-right: auto;">
+                </div>
+                <figcaption style="color: aliceblue;">ETap Shifter For The Automatic Shifting</figcaption>
+              </figure>
+              <p align="center" style=" color:black; flex-direction: column; background-color: white; border-radius: 8px; width: 90%; display: block; margin-left: auto; margin-right: auto; margin-top: 30px; margin-bottom: 30px; padding: 3%;">
+                In this project, I worked to create automatic shifting on a bike using a custom ML model for each rider. The shifting algorithm is an ML model that was trained on historical Strava data, and the on-bike shifting is performed by a microcontroller, which digests real-time packets from BLE sensors (speed, cadence, and power), feeds that data into the ML model, and sends a shifting signal to the electronic shifters. This Project gave me a deeper understanding of the different technologies avalible and how to use them. I worked with many different microcontrollers throughout this project and finnaly settled on the Adafruit-ItsyBitsy-NRF52840 for it's BLE module which was necessarry for making this project work. This project utilized many systems and had many challenges to accomplishing the end goal. I started by processing the data which I worked with .fit files from strava to extract shifting points and manipulate the data from the files using mapping in python and then putting the extracted data into a pandas dataframe. This was then processed in a classification model using pytorch. The trainer would take in what desired values you wanted and output a model that was able to determine if you should shift and which way, or stay in the same gear. Then the weights and biases were uploaded to the CircuitPython drive on the chip which would leverage the SRAM Blip ports to shift. The Microcontroller connects to sensors on your bike to feed data to the ML model which most sensors had libraries to process the BLE packets but the power meter had no such libraries. This forced me to develop <a href="CyclingPowerService.html">my own BLE service library</a> to receive, manipulate, and interpret the byte array sent from the BLE sensor. This project allowed me to create a fully functional Automatic Shifting System and taught me a lot about how to utilize ML models on embedded systems.
+            </p>
+            <div align="center"id="info" style="flex-direction: column; background-color: white; border-radius: 8px; width: 80%; display: block; margin-left: auto; margin-right: auto; margin-top: 30px; margin-bottom: 30px;">
+            <h2 align="center" style="color: black;padding: 10px;" >Key Features</h2>
+            <ul style="background-color: white;list-style: none;">
+                <div align="center">
+                <li style="color: black;padding: 10px;">Trained On Your Previous Shifting: Using Strava ride files we train the ML model to learn how to shift. The goal of this is to create a model which can emulate how you shift</li>
+                <li style="color: black;padding: 10px;">Low Power Consumption: This project uses the Adafruit-ItsyBitsy-NRF52840 which is a microcontroller which can run off of a small lipo battery and does not produce much heat while running.</li>
+                </div>
+            </ul>
+            <h2 align="center" style="color: black;padding: 10px;" >Technologies Used</h2>
+            <ul align="center"style="background-color: white;list-style: none;">
+                <div align="center">
+                <li style="color: black; padding: 10px;">BLE: Uses BLE to connect and read from the sensors on the bike</li>
+                <li style="color: black;padding: 10px;">Machine Learning: Uses machine learning to predict how you should shift</li>
+                <li style="color:black;padding: 10px;">Blip: Utilizes the blip platform from SRAM to plug into the ETAP shifters which allows the microcontroller to shift</li>
+            </div>
+            </ul>
+            <p style="color:black"align="center" >Check out the <a href="https://github.com/EzrSchwartz/Autoshift" style="color: black">Project on GitHub</a></p>
+        </div>
+        </section>
+
+    </main>
+
+    <footer class="container" style="width: 100%;">
+        <p align="center">
+            Connect with me on <a href="https://www.linkedin.com/in/ezra-schwartz-64213b2ba/" style="color:aliceblue">LinkedIn</a> | <a href="https://github.com/EzrSchwartz" style="color:aliceblue">GitHub</a></p>
+    </footer>
+
+        <script src="tspanimation.js"></script>
+
+    </body>
+</html>

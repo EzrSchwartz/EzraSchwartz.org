@@ -1,0 +1,14 @@
+Projects to work on 
+
+        {
+            id: 'project5',
+            name: 'Remote Sensing Automatic Deployment System',
+            description: 'This is a system which can deploy swarm drones operating autonomously to deliver and drop down a network of sensors on a moments notice. This is used to deploy a network of sensors as a dissaster is happening and allows the controllers to get data in a whole new way.',
+            link: 'RSADS.html'
+
+        },
+        {
+            id: 'project6',
+        name: 'AI in MRI Shoulder Scans',
+        description: 'This uses a ML model to detect tears in the Labrum. This has not been done before since it is an injury which there are other methods to finding out if you have torn your labrum or not. This would however allow you to know much sooner and with less pain than the current methods.',
+        link: 'MRIAI.html'}

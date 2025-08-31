@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fishing Trip Finder - Ezra Schwartz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ProjectStyle.css">
+</head>
+<body>
+    <canvas id="tspCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
+
+    <header>
+        <!-- Navigation with flexbox and centered ul children elements -->
+        <nav>
+            <ul class="container">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#top">Project Details</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section id="project" class="project-details">
+            <!-- project title styling with header 1 and a main-title class -->
+            <h1 align="center" style="color: aliceblue; padding: 30px"  class="main-title">Fishing Trip Finder</h1>
+            <figure style="width: fit-content; margin: 0 auto;">
+                <div class="image-wrapper">
+                  <img src="Shark.jpg" alt="Project Image" style="max-width:  50%; width: 50%; display: block; margin-left: auto; margin-right: auto;">
+                </div>
+                <figcaption style="color: aliceblue;">Shark I caught off of Bean Point FL</figcaption>
+              </figure>
+
+              <p align="center" style=" color:black; flex-direction: column; background-color: white; border-radius: 8px; width: 90%; display: block; margin-left: auto; margin-right: auto; margin-top: 30px; margin-bottom: 30px; padding: 3%;">
+                This project is a system that uses web scraping to find beach rentals that are available starting 2 days from now. I designed it to work with Sato Real Estate for development. I worked through many iterations and finally came to the point it is at currently. The idea of this system is to track prices and find deals when you book close to the start date. The system also incorporates airfare and uses Avelo Airlines to find them. The whole project saves all the info about prices for houses and planes in a MySql database.
+            </p>
+
+            <div align="center"id="info" style="flex-direction: column; background-color: white; border-radius: 8px; width: 80%; display: block; margin-left: auto; margin-right: auto; margin-top: 30px; margin-bottom: 30px;">
+                <h2 align="center" style="color: black;" >Key Features</h2>
+            <ul style="background-color: white;list-style: none;">
+                <div align="center">
+
+                <li style="color: black;">Historical Prices: Saves all historical data of prices in a MySql database. This allows me to go back and look at historical trends of the houses and planes.</li>
+                <li style="color: black;">Automatic Emails: Automaticly sends an email to users each day of what the upcomng prices are for hotels and plane tickets.</li>
+                </div>
+            </ul>
+
+            <h2 align="center" style="color: black;" >Technologies Used</h2>
+            <ul align="center"style="background-color: white;list-style: none;">
+                <div align="center">
+                    <li style="color: black;">Webscraping: Uses webscraping to extract data from Sato Realestate's website and from Avelo Airlines</li>
+                <li style="color: black;">MySql: Uses MySql to save and store price data along with house id's. </li>
+            </div>
+            </ul>
+
+            <p align="center" >Check out the <a href="https://github.com/EzrSchwartz/Autoshift">Project on GitHub</a></p>
+
+        </div>
+        </section>
+    </main>
+    <footer class="container">
+        <p>
+            Connect with me on <a href="https://www.linkedin.com/in/ezra-schwartz-64213b2ba/">LinkedIn</a> | <a href="https://github.com/EzrSchwartz">GitHub</a></p>
+    </footer>
+        <script src="tspanimation.js"></script>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cycling Power Service - Ezra Schwartz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ProjectStyle.css">
+</head>
+<body>
+    <canvas id="tspCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
+
+    <header>
+        <!-- Navigation with flexbox and centered ul children elements -->
+        <nav>
+            <ul class="container">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#top">Project Details</a></li>
+                <li><a href="index.html#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section id="project" class="project-details">
+            <!-- project title styling with header 1 and a main-title class -->
+            <h1 align="center" style="color: aliceblue; padding: 30px"  class="main-title">Cycling Power Service Library</h1>
+            <!-- used a figure for the image to include the caption -->
+            <figure style="width: fit-content; margin: 0 auto;">
+                <div class="image-wrapper">
+                  <img src="BLEPowermeter.jpg" alt="Project Image" style="max-width:25%; width: 50%; display: block; margin-left: auto; margin-right: auto;">
+                </div>
+                <figcaption style="color: aliceblue;">BLE Powermeter</figcaption>
+              </figure>
+
+              <p align="center" style=" color:black; flex-direction: column; background-color: white; border-radius: 8px; width: 90%; display: block; margin-left: auto; margin-right: auto; margin-top: 30px; margin-bottom: 30px; padding: 3%;">
+                While working on my <a href="Autoshift.html">Autoshift project</a>, I ran into an issue. Currently, there is no library to interpret data from a BLE power meter. This problem was because nobody had dealt with microcontrollers and power meters using CircuitPython. Because of this I couldn't receive data from my power meter and couldn't find a way to do so without creating my own service library. I started working on this project and got deeply involved with learning about BLE connections and how the service works. I worked on the library to be able to use direct data from my power-meter. Throughout the process, I worked with developers at Adafruit and other people who have worked on CircuitPython libraries in the past to get my library added to the <a href="https://github.com/adafruit/CircuitPython_Community_Bundle">CircuitPython_Community Bundle</a>. The service was implemented into the AutoShift project and worked flawlessly with the Sram AXS power-meter. This project ended up being a great success and allowed me to further my knowledge of BLE packets and how to extract necessary data from the packet. This project helped spark my interest in wireless communications.
+                <div align="center"id="info" style="flex-direction: column; background-color: white; border-radius: 8px; width: 80%; display: block; margin-left: auto; margin-right: auto; margin-top: 30px; margin-bottom: 30px;">
+                    <h2 align="center" style="color: black;" >Key Features</h2>
+            <ul style="background-color: white;list-style: none;">
+                <div align="center">
+
+                <li style="color: black;">Return Power Value: Returns the power value from the sensor in Watts.</li>
+                <li style="color: black;">Return Byte Array: Gives the user the option to return the entire byte array sent from the powermeter so that they can extract what data they would like to from the sensor.</li>
+                </div>
+            </ul>
+
+            <h2 align="center" style="color: black;" >Technologies Used</h2>
+            <ul align="center"style="background-color: white;list-style: none;">
+                <div align="center">
+                <li style="color: black;">BLE: Uses the Adafruit-ItsyBitsy-NRF52840 to connect to the sensor and then read the data.</li>
+            </div>
+            </ul>
+            <p align="center" >Check out the <a href="https://github.com/EzrSchwartz/Circuitpython_BLE_Cycling_Power_Service">Project on GitHub</a></p>
+
+        </div>
+        </section>
+    </main>
+    <footer  style="width: 100%" class="container">
+        <p >
+            Connect with me on <a href="https://www.linkedin.com/in/ezra-schwartz-64213b2ba/">LinkedIn</a> | <a href="https://github.com/EzrSchwartz">GitHub</a></p>
+    </footer>
+        <script src="tspanimation.js"></script>
+    </body>
+</html>
