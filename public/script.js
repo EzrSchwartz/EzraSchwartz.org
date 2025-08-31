@@ -201,9 +201,8 @@ document.addEventListener('DOMContentLoaded', () => {
         projectCard.id = project.id;
         projectCard.innerHTML = `
             <h3>${project.name}</h3>
-            <p>${project.description}</p>
-            <a href="${project.link}" target="_blank">View Project</a>
-        `;
+            <p>${project.description}</p>        `
+            ;
         return projectCard;
     }
 
