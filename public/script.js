@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
             description: 'This project is using GEE (Google Earth Engine) to visualize on a map where deforestation has been prevaliant and how bad it is in areas of the world. I worked on this project to understand how to use GEE and to learn how you can use satalite images to creat visuals in a new way.',
             link: 'VDE.html'
         },
-        {
-            id: 'project5',
-            name: 'EzraSchwartz.org',
-            description: 'This is my personal website, which I built from scratch using HTML, CSS, and JavaScript. I designed it to showcase my projects and provide information about myself.',
-            link: 'index.html'},
+        // {
+        //     id: 'project5',
+        //     name: 'EzraSchwartz.org',
+        //     description: 'This is my personal website, which I built from scratch using HTML, CSS, and JavaScript. I designed it to showcase my projects and provide information about myself.',
+        //     link: 'index.html'},
         {
             id: 'project6',
             name: 'Detecting RTC tears from MRI Scans',
