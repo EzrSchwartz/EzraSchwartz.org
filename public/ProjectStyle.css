@@ -7,15 +7,15 @@
 
 html {
     font-size: 16px;
+    scroll-behavior: smooth;
 }
-
 
 body {
     font-family: 'Roboto', sans-serif;
-    color: #333;
-    background-color: #1a151578;
+    color: #e0e0e0;
+    background-color: #0a0a0a;
     line-height: 1.6;
-    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-x: hidden;
 }
 
 
@@ -32,100 +32,184 @@ h1, h2 {
 }
 
 /* Header and Navigation */
-header, nav, ul {
-    background-color: #000000;
-}
-
 header {
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
     color: #fff;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10; /* Above other content */
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: space-around;
-    padding: 1rem;
+    gap: 3rem;
+    padding: 0;
+    background-color: transparent;
 }
 
 nav a {
-    color: #f5f5f5;
+    color: #fff;
     text-decoration: none;
     padding: 0.5rem 1rem;
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav a:hover::after,
+nav a:focus::after {
+    width: 100%;
+    left: 0;
 }
 
 nav a:hover,
 nav a:focus {
-    background-color: #f5f5f5;
-    color: #000;
+    color: #fff;
+    outline: none;
 }
 
 /* Project Details Section */
 .project-details {
-    margin: 3rem 0;
+    margin: 8rem auto 4rem;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.main-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    letter-spacing: -0.5px;
+    text-align: center;
 }
 
 .project-details figure {
-    margin-bottom: 1rem;
-    padding: auto;
-    box-shadow: 2px;
-    
+    margin-bottom: 4rem;
+    padding: 0;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-wrapper img {
+    max-width: 75%;
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .project-details figure figcaption {
-    color: #867c7ca7;
-    font-size: 0.8rem;
+    color: #b0b0b0;
+    font-size: 1rem;
     text-align: center;
+    margin-top: 1rem;
+    font-weight: 500;
 }
 
 /* Lighter and cleaner color theme for the project */
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    nav {
-        position: relative;
-    }
-    
     nav ul {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        flex-direction: column;
-        background-color: #fff;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        gap: 1.5rem;
     }
 
     nav a {
-        padding: 0.75rem;
-    }
-    nav ul li {
-        border-bottom: 1px solid #ddd;
+        font-size: 0.9rem;
     }
 
-    nav ul li:last-child {
-        border-bottom: 0;
+    .main-title {
+        font-size: 2rem;
     }
 
-    nav ul.active {
-        display: block;
+    .project-details {
+        margin-top: 6rem;
+        padding: 0 1rem;
+    }
+
+    .image-wrapper img {
+        max-width: 90%;
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        gap: 1rem;
+    }
+
+    nav a {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .main-title {
+        font-size: 1.75rem;
+    }
+
+    .image-wrapper img {
+        max-width: 95%;
+        width: 95%;
     }
 }
 
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #b0b0b0;
     text-align: center;
-    padding: 1rem 0;
+    padding: 2rem 0;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 6rem;
+}
 
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+footer a:hover {
+    opacity: 0.7;
 }
 
 

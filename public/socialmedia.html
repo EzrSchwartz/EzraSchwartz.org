@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media & Global Discourse</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background: #f4f1ea;
+            color: #2c2c2c;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .scene {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 40px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scene.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scene-content {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Hand-drawn style borders */
+        .sketch-border {
+            border: 3px solid #2c2c2c;
+            border-radius: 2px;
+            position: relative;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+        }
+
+        .sketch-border::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 2px solid #2c2c2c;
+            border-radius: 2px;
+            opacity: 0.3;
+        }
+
+        /* INTRO */
+        #intro {
+            background: #e8dcc4;
+            text-align: center;
+        }
+
+        #intro h1 {
+            font-size: 3.5em;
+            font-weight: 900;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        #intro .subtitle {
+            font-size: 1.4em;
+            color: #5a5a5a;
+            font-style: italic;
+            margin-top: 30px;
+        }
+
+        /* KEY ARGUMENT BOXES */
+        .argument-box {
+            background: #fff;
+            padding: 35px;
+            margin: 30px 0;
+            border-left: 8px solid #d63447;
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.05);
+        }
+
+        .argument-box h3 {
+            font-size: 1.6em;
+            color: #d63447;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .argument-box p {
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: #3c3c3c;
+        }
+
+        /* DISCOURSE SECTION */
+        #revolution {
+            background: #f4f1ea;
+        }
+
+        .discourse-title {
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 40px;
+            color: #2c2c2c;
+            line-height: 1.2;
+        }
+
+        .discourse-point {
+            background: #fff;
+            padding: 30px;
+            margin: 25px 0;
+            border-left: 5px solid #4a4a4a;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        .discourse-point strong {
+            color: #d63447;
+            font-weight: 700;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .comparison-box {
+            background: #fff;
+            padding: 30px;
+            border: 3px solid #2c2c2c;
+            position: relative;
+        }
+
+        .comparison-box h4 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.2em;
+        }
+
+        .comparison-box p {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        /* CASE LAW */
+        #packingham {
+            background: #e8dcc4;
+        }
+
+        .case-law {
+            background: #fff;
+            padding: 45px;
+            margin: 40px 0;
+            border: 4px solid #2c2c2c;
+            box-shadow: 6px 6px 0 rgba(0,0,0,0.1);
+        }
+
+        .case-law .case-name {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #2c2c2c;
+            margin-bottom: 25px;
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 5px;
+        }
+
+        .case-law .question,
+        .case-law .ruling {
+            margin: 25px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-left: 6px solid #d63447;
+        }
+
+        .case-law .label {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9em;
+            color: #d63447;
+            margin-bottom: 10px;
+        }
+
+        .case-law p {
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        /* PROBLEMS */
+        #problems {
+            background: #f4f1ea;
+        }
+
+        .central-question {
+            text-align: center;
+            font-size: 2em;
+            font-weight: 700;
+            margin: 40px 0;
+            padding: 40px;
+            background: #fff;
+            border: 4px solid #d63447;
+            line-height: 1.6;
+        }
+
+        .case-study {
+            background: #fff;
+            padding: 40px;
+            margin: 30px 0;
+            border: 3px solid #2c2c2c;
+        }
+
+        .case-study .country {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #d63447;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .case-study .scenario {
+            font-size: 1.15em;
+            line-height: 1.9;
+            margin: 15px 0;
+            color: #3c3c3c;
+        }
+
+        .case-study .dilemma {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-left: 6px solid #d63447;
+            font-size: 1.2em;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* DILEMMA */
+        #dilemma {
+            background: #e8dcc4;
+        }
+
+        .big-question-box {
+            background: #fff;
+            padding: 50px;
+            border: 5px solid #2c2c2c;
+            margin: 40px 0;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+        }
+
+        .big-question-box p {
+            font-size: 1.6em;
+            line-height: 1.7;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .precedent {
+            background: #fff;
+            padding: 35px;
+            margin: 35px 0;
+            border-left: 8px solid #4a4a4a;
+        }
+
+        .precedent-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+        }
+
+        /* DROWNING */
+        #drowning {
+            background: #f4f1ea;
+        }
+
+        .quote-large {
+            background: #fff;
+            padding: 50px;
+            margin: 40px 0;
+            border: 4px solid #2c2c2c;
+            position: relative;
+            box-shadow: 6px 6px 0 rgba(0,0,0,0.1);
+        }
+
+        .quote-large::before {
+            content: '"';
+            font-size: 8em;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            color: #d63447;
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+
+        .quote-large p {
+            font-size: 1.8em;
+            line-height: 1.6;
+            font-style: italic;
+            color: #2c2c2c;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-large .attribution {
+            margin-top: 25px;
+            text-align: right;
+            font-size: 1.1em;
+            font-style: normal;
+            font-weight: 600;
+            color: #5a5a5a;
+        }
+
+        .reality-list {
+            background: #fff;
+            padding: 40px;
+            margin: 35px 0;
+            border-left: 8px solid #d63447;
+        }
+
+        .reality-list h3 {
+            font-size: 1.6em;
+            margin-bottom: 25px;
+            color: #d63447;
+            font-weight: 700;
+        }
+
+        .reality-list ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .reality-list li {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .reality-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #d63447;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        /* SOLUTION */
+        #solution {
+            background: #e8dcc4;
+        }
+
+        .solution-intro {
+            background: #fff;
+            padding: 40px;
+            margin: 40px 0;
+            border: 4px solid #2c2c2c;
+            text-align: center;
+        }
+
+        .solution-intro h3 {
+            font-size: 2.2em;
+            color: #2c2c2c;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .solution-intro p {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #3c3c3c;
+        }
+
+        .clarification-box {
+            background: #f9f9f9;
+            padding: 35px;
+            margin: 30px 0;
+            border-left: 8px solid #4a4a4a;
+        }
+
+        .clarification-box h4 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .clarification-box ul {
+            list-style: none;
+            margin: 20px 0;
+            padding: 0;
+        }
+
+        .clarification-box li {
+            font-size: 1.15em;
+            line-height: 1.8;
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .clarification-box li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #d63447;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        /* IMPLEMENTATION */
+        #implementation {
+            background: #f4f1ea;
+        }
+
+        .implementation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin: 40px 0;
+        }
+
+        .org-proposal {
+            background: #fff;
+            padding: 35px;
+            border: 3px solid #2c2c2c;
+        }
+
+        .org-proposal h4 {
+            font-size: 1.5em;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .org-proposal p {
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #3c3c3c;
+        }
+
+        .goal-statement {
+            background: #fff;
+            padding: 40px;
+            margin: 35px 0;
+            border: 4px solid #d63447;
+            text-align: center;
+        }
+
+        .goal-statement p {
+            font-size: 1.4em;
+            line-height: 1.8;
+            font-weight: 600;
+        }
+
+        /* CONCLUSION */
+        #conclusion {
+            background: #e8dcc4;
+            text-align: center;
+        }
+
+        .final-statement {
+            background: #fff;
+            padding: 60px;
+            border: 5px solid #2c2c2c;
+            box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+        }
+
+        .final-statement h3 {
+            font-size: 2.5em;
+            color: #2c2c2c;
+            margin-bottom: 35px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .final-statement p {
+            font-size: 1.4em;
+            line-height: 1.9;
+            color: #3c3c3c;
+            margin: 25px 0;
+        }
+
+        .final-statement .emphasis {
+            font-size: 1.6em;
+            color: #d63447;
+            font-weight: 700;
+            margin-top: 40px;
+            line-height: 1.6;
+        }
+
+        /* Scroll indicator */
+        .scroll-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            color: #5a5a5a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .scroll-hint::after {
+            content: '↓';
+            display: block;
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 5px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .scene {
+                padding: 60px 25px;
+            }
+
+            #intro h1 {
+                font-size: 2.5em;
+            }
+
+            .discourse-title {
+                font-size: 2em;
+            }
+
+            .comparison-grid,
+            .implementation-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .case-law,
+            .quote-large,
+            .big-question-box {
+                padding: 30px;
+            }
+
+            .quote-large p {
+                font-size: 1.4em;
+            }
+
+            .big-question-box p {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- INTRO -->
+    <div class="scene active" id="intro">
+        <div class="scene-content">
+            <h1>Social Media & Global Discourse</h1>
+            <p class="subtitle">When one country's freedom becomes another's crime</p>
+        </div>
+    </div>
+
+    <!-- REVOLUTION -->
+    <div class="scene" id="revolution">
+        <div class="scene-content">
+            <h2 class="discourse-title">How Social Media Fundamentally Changed Global Discourse</h2>
+            
+            <div class="discourse-point">
+                Social media platforms have created something unprecedented in human history: a <strong>truly borderless public square</strong>. For the first time, what you say in one country can instantly be seen, shared, and debated in every other country on Earth.
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-box">
+                    <h4>Pre-Social Media Era</h4>
+                    <p>Your speech was constrained by geographic boundaries. If you lived in Germany, you followed German speech laws. If you lived in Iraq, you followed Iraqi laws. National borders defined the limits of discourse.</p>
+                </div>
+                <div class="comparison-box">
+                    <h4>Post-Social Media Era</h4>
+                    <p>Geographic boundaries dissolved. You can post something from America—where it's protected speech—and someone in Germany, Iraq, or China can instantly access it. Traditional legal frameworks don't know how to handle this.</p>
+                </div>
+            </div>
+
+            <div class="argument-box">
+                <h3>The Core Transformation</h3>
+                <p>Social media didn't just give people a new way to communicate. It fundamentally restructured who controls the flow of information and which legal systems govern speech. This created a massive jurisdictional crisis that no one was prepared for.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PACKINGHAM -->
+    <div class="scene" id="packingham">
+        <div class="scene-content">
+            <h2 class="discourse-title">The U.S. Establishes Social Media as Free Speech</h2>
+
+            <div class="case-law">
+                <div class="case-name">Packingham v. North Carolina (2017)</div>
+                
+                <div class="question">
+                    <div class="label">The Question</div>
+                    <p>Can states prohibit registered sex offenders from accessing social media platforms where minors are present? North Carolina argued this was a reasonable public safety measure.</p>
+                </div>
+
+                <div class="ruling">
+                    <div class="label">The Supreme Court's Ruling</div>
+                    <p>No. The Court ruled that social media platforms have become essential to modern free speech. Blocking access to social media is akin to blocking access to the modern public forum—a fundamental First Amendment violation.</p>
+                </div>
+            </div>
+
+            <div class="argument-box">
+                <h3>Why This Matters</h3>
+                <p>This decision established that in the United States, social media access is not a privilege—it's a constitutional right tied to free speech. You cannot simply take away someone's ability to participate in online discourse. This precedent becomes critically important when we consider global conflicts over content regulation.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROBLEMS -->
+    <div class="scene" id="problems">
+        <div class="scene-content">
+            <h2 class="discourse-title">The Global Collision: When Free Speech Meets Criminal Law</h2>
+
+            <div class="central-question">
+                What happens when one nation's protected speech is another nation's criminal offense?
+            </div>
+
+            <div class="case-study">
+                <div class="country">Iraq: The LGBTQ+ Data Dilemma</div>
+                <div class="scenario">
+                    Being gay is illegal in Iraq. Facebook and other platforms collect extensive user data, including information that could reveal sexual orientation through likes, groups joined, relationship status, and behavioral patterns.
+                </div>
+                <div class="scenario">
+                    Iraqi authorities could theoretically demand that Facebook turn over data identifying LGBTQ+ users within their jurisdiction. From Iraq's legal perspective, this would be a routine law enforcement request.
+                </div>
+                <div class="dilemma">
+                    Should Facebook comply with local law enforcement requests when compliance could lead to persecution or death? Is the company obligated to enforce laws it finds morally reprehensible?
+                </div>
+            </div>
+
+            <div class="case-study">
+                <div class="country">Germany: Holocaust Denial</div>
+                <div class="scenario">
+                    Denying or minimizing the Holocaust is a criminal offense in Germany, punishable by up to five years in prison. This law exists for clear historical reasons and reflects Germany's commitment to never repeating its past.
+                </div>
+                <div class="scenario">
+                    However, Holocaust denial is legal speech in the United States under the First Amendment. Facebook, Twitter, and other major platforms are U.S.-based companies operating under U.S. law.
+                </div>
+                <div class="dilemma">
+                    Should these platforms censor Holocaust denial for German users, even though it's protected speech in their home country? If they do geo-specific censorship, are they enforcing one country's laws globally?
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DILEMMA -->
+    <div class="scene" id="dilemma">
+        <div class="scene-content">
+            <h2 class="discourse-title">The Impossible Task</h2>
+
+            <div class="big-question-box">
+                <p>Is it reasonable to hold private social media companies responsible for understanding and enforcing the legal codes of all 195 countries for every user in those jurisdictions?</p>
+            </div>
+
+            <div class="precedent">
+                <div class="precedent-name">Lloyd Corp., Ltd. v. Tanner (1972)</div>
+                <p style="font-size: 1.15em; line-height: 1.8;">
+                    The Supreme Court established that private property remains private property, even when it's used by the public. A shopping mall, despite being a public gathering space, doesn't become government property subject to the same free speech requirements as a true public square.
+                </p>
+            </div>
+
+            <div class="argument-box">
+                <h3>The Fundamental Problem</h3>
+                <p>Social media companies are private businesses, not governmental entities. Yet we're asking them to navigate hundreds of conflicting legal systems, make life-or-death decisions about user safety, and somehow balance free speech principles with local censorship laws. They lack the democratic legitimacy, legal authority, and resources to be global speech arbiters.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- DROWNING -->
+    <div class="scene" id="drowning">
+        <div class="scene-content">
+            <h2 class="discourse-title">The Industry Perspective</h2>
+
+            <div class="quote-large">
+                <p>Companies are begging for some sort of regulatory body because right now they are drowning not knowing what to do</p>
+                <div class="attribution">— Former Senior Director of Business and Marketing, Meta</div>
+            </div>
+
+            <div class="reality-list">
+                <h3>The Current Reality</h3>
+                <ul>
+                    <li>Tech companies face legal liability in every jurisdiction where they operate</li>
+                    <li>They must make split-second decisions about content that could result in imprisonment or death for users</li>
+                    <li>They have no clear international framework to guide their choices</li>
+                    <li>They're criticized no matter what they do—too much censorship or too little</li>
+                    <li>They're essentially writing global speech policy by default, a role they never sought and aren't equipped to handle</li>
+                </ul>
+            </div>
+
+            <div class="argument-box">
+                <h3>Why This Matters</h3>
+                <p>When private companies are forced to make these decisions in a vacuum, we end up with inconsistent, opaque, and often arbitrary content moderation. There's no democratic accountability, no transparent process, and no recourse for users who disagree with the decisions. This is not how speech governance should work in democratic societies.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOLUTION -->
+    <div class="scene" id="solution">
+        <div class="scene-content">
+            <h2 class="discourse-title">A Proposed Path Forward</h2>
+
+            <div class="solution-intro">
+                <h3>International Standards for Digital Discourse</h3>
+                <p>Establish a regulatory committee within existing international organizations—such as NATO or the United Nations—tasked with developing transparent standards for global social media governance.</p>
+            </div>
+
+            <div class="clarification-box">
+                <h4>What This Is NOT:</h4>
+                <ul>
+                    <li>A censorship body that controls what people can say</li>
+                    <li>A mechanism to suppress dissent or limit free expression</li>
+                    <li>An attempt to impose Western values on non-Western countries</li>
+                    <li>A way for governments to expand surveillance powers</li>
+                </ul>
+            </div>
+
+            <div class="argument-box">
+                <h3>What This IS:</h3>
+                <p>A framework that provides companies with clear, legitimate guidance on handling cross-jurisdictional conflicts. It would establish baseline standards that respect cultural differences while protecting fundamental human rights. Companies would know what's expected of them, users would understand the rules, and there would be democratic accountability through international governance structures.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- IMPLEMENTATION -->
+    <div class="scene" id="implementation">
+        <div class="scene-content">
+            <h2 class="discourse-title">Potential Implementation Models</h2>
+
+            <div class="implementation-grid">
+                <div class="org-proposal">
+                    <h4>NATO Framework</h4>
+                    <p>Member democracies could agree on baseline discourse standards that reflect shared liberal democratic values. This wouldn't apply globally, but would create consistency among allied nations and demonstrate how international cooperation on digital governance can work.</p>
+                </div>
+
+                <div class="org-proposal">
+                    <h4>United Nations Committee</h4>
+                    <p>A broader UN-based approach would include more diverse perspectives and could establish universal principles for digital speech—similar to how international humanitarian law works. Countries could opt into standards while respecting sovereignty.</p>
+                </div>
+            </div>
+
+            <div class="goal-statement">
+                <p>The goal is not to solve every conflict overnight. It's to create a legitimate, transparent process where these decisions are made through democratic international cooperation rather than by Silicon Valley executives behind closed doors.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div class="scene" id="conclusion">
+        <div class="scene-content">
+            <h2 class="discourse-title">The Bottom Line</h2>
+
+            <div class="final-statement">
+                <h3>Where We Stand</h3>
+                <p>Social media has fundamentally transformed global discourse by erasing geographic boundaries. This transformation happened faster than our legal and governance systems could adapt.</p>
+                <p>We now face a choice: continue letting private companies make these decisions unilaterally, or create international frameworks that bring democratic legitimacy and transparency to digital governance.</p>
+                <p class="emphasis">Social media changed the world. Now global cooperation needs to catch up.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-hint">Scroll</div>
+
+    <script>
+        // Simpler, more natural scroll animation
+        const scenes = document.querySelectorAll('.scene');
+        const scrollHint = document.querySelector('.scroll-hint');
+        
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -15% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        scenes.forEach(scene => {
+            if (scene.id !== 'intro') {
+                observer.observe(scene);
+            }
+        });
+
+        // Hide scroll hint after scrolling
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                scrollHint.style.opacity = '0';
+            }
+        });
+    </script>
+</body>
+</html>
