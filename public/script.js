@@ -1,19 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Welcome to EzraSchwartz.org");
-    let projectCount = 0;
 
     const projects = [
         {
             id: 'project1',
             name: 'Cycling AutoShift',
             description: 'In this project, I worked to create automatic shifting on a bike using a custom ML model for each rider. The shifting algorithm is an ML model that was trained on historical Strava data, and the on-bike shifting is performed by a microcontroller, which digests real-time packets from BLE sensors (speed, cadence, and power), feeds that data into the ML model, and sends a shifting signal to the electronic shifters.',
-            link: 'Autoshift.html'
+            link: 'Autoshift.html',
+            image: 'AutoshiftDevice.jpg'
         },
         {
             id: 'project2',
             name: 'BLE Cycling Power Service',
             description: 'This project is a library I developed for the AutoShift project. During the AutoShift project, I struggled to find a library to dissect a BLE Powermeter packet. Because of this, I decided to create my own library to do so. This library is also available in the CircuitPython Community Bundle.',
-            link: 'CyclingPowerService.html'
+            link: 'CyclingPowerService.html',
+            image: 'BLEPowermeter.jpg'
         },
         // {
         //     id: 'project3',
@@ -25,13 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'project4',
             name: 'Decentralized Ground Sensing Network',
             description: 'This is a remote Sensor network in which all the sensors are working together to transmit data in the most energy-efficient way. This also creates redundancy in case one sensor goes down.',
-            link: 'DRSN.html'
+            link: 'DRSN.html',
+            image: 'Mesh.jpg'
         },
         {
             id: 'project4',
             name: 'Vissualizing Deforestation with GEE',
             description: 'This project is using GEE (Google Earth Engine) to visualize on a map where deforestation has been prevaliant and how bad it is in areas of the world. I worked on this project to understand how to use GEE and to learn how you can use satalite images to creat visuals in a new way.',
-            link: 'VDE.html'
+            link: 'VDE.html',
+            image: 'Screenshot 2024-04-08 210146.png'
         },
         // {
         //     id: 'project5',
@@ -42,75 +45,35 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'project6',
             name: 'Detecting RTC tears from MRI Scans',
             description: 'This project involved using machine learning to detect rotator cuff tears from MRI scans. I worked on data preprocessing, model training, and evaluation to achieve accurate detection results.',
-            link: 'MRIAI.html'
+            link: 'MRIAI.html',
+            image: 'RotatorCuffMRI.png'
         },
 
 
     ];
 
     const projectsContainer = document.getElementById('projectsContainer');
-    const tocList = document.getElementById('tocList');
 
     function loadProjects() {
-        projects.forEach((project, index) => {
-            projectsContainer.appendChild(createProjectElement(project, index));
-
-
-
-            
-            // Generate ToC link for the project
-            const tocLink = document.createElement('li');
-            tocLink.innerHTML = `<a href=" #${project.link}">${project.name}</a>`;
-            tocList.appendChild(tocLink);
-
-            // Add click event to ToC link
-            tocLink.querySelector('a').addEventListener('click', (e) => {
-                e.preventDefault();
-                const projectLink = project.link;
-                window.location.href = projectLink;
-            });
+        projects.forEach((project) => {
+            projectsContainer.appendChild(createProjectElement(project));
         });
-
-        // Initialize scrollLeft to the first project's position
-        projectsContainer.scrollLeft = projects[0].offsetWidth;
-
-        // Make the carousel infinite to the left
-        const intervalId = setInterval(() => {
-            if (projectsContainer.scrollLeft <= projects[0].offsetWidth) {
-                projectsContainer.scrollLeft = projects[projects.length - 1].offsetWidth;
-            }
-        }, 10);
-        projectsContainer.addEventListener('mouseenter', () => clearInterval(intervalId));
-        projectsContainer.addEventListener('mouseleave', () => intervalId.restart());
     }
 
-    function createProjectElement(project, index) {
-        const projectCard = document.createElement('div');
+    function createProjectElement(project) {
+        const projectCard = document.createElement('a');
         projectCard.className = 'project';
         projectCard.id = project.id;
+        projectCard.href = project.link;
         projectCard.innerHTML = `
-            <h3>${project.name}</h3>
-            <p>${project.description}</p>
-            <a href="${project.link}">View Project</a>
+            <img src="${project.image}" alt="${project.name}" class="project-image">
+            <div class="project-overlay"></div>
+            <div class="project-content">
+                <h3>${project.name}</h3>
+                <p>${project.description}</p>
+            </div>
         `;
         return projectCard;
-    }
-
-    function centerProjectInContainer(projectId) {
-        const projectElement = document.getElementById(projectId);
-
-        if (!projectElement) return;
-    
-        const projectsContainer = document.querySelector('.slideshow-container');
-        const projectOffset = projectElement.offsetLeft + projectElement.offsetWidth / 2;
-        const containerScrollX = projectsContainer.scrollLeft;
-        const containerCenter = projectsContainer.offsetWidth / 2;
-    
-        // Calculate new scroll position to center the project
-        const newScrollPosition = projectOffset - containerCenter + containerScrollX;
-        
-        // Scroll the container to the new position
-        projectsContainer.scrollTo({ left: newScrollPosition, behavior: 'smooth' });
     }
 
     loadProjects();
@@ -120,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Welcome to EzraSchwartz.org");
-    let projectCount = 0;
 
     const projects = [
         {
@@ -164,8 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectsContainer = document.getElementById('awardsContainer');
 
     function loadAwards() {
-        projects.forEach((project, index) => {
-            projectsContainer.appendChild(createAwardElement(project, index));
+        projects.forEach((project) => {
+            projectsContainer.appendChild(createAwardElement(project));
 
 
 
@@ -195,14 +157,14 @@ document.addEventListener('DOMContentLoaded', () => {
         projectsContainer.addEventListener('mouseleave', () => intervalId.restart());
     }
 
-    function createAwardElement(project, index) {
+    function createAwardElement(project) {
         const projectCard = document.createElement('div');
         projectCard.className = 'project';
         projectCard.id = project.id;
         projectCard.innerHTML = `
             <h3>${project.name}</h3>
-            <p>${project.description}</p>        `
-            ;
+            <p>${project.description}</p>
+        `;
         return projectCard;
     }
 

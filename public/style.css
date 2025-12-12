@@ -15,15 +15,16 @@ html {
 body {
     font-family: 'Roboto', sans-serif;
     color: #e0e0e0;
-    background-color: #0a0a0a;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0d2c52 50%, #11182e 75%, #0e0e17 100%);
+    background-attachment: fixed;
     line-height: 1.6;
     overflow-x: hidden;
 }
 
 /* Utility Classes */
 .container {
-    width: 90%;
-    max-width: 1200px; /* Adjust based on your design */
+    width: 100%;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 15px;
@@ -95,16 +96,24 @@ main {
 }
 
 /* About Section */
+#aboutthis {
+    width: 100%;
+}
+
 #aboutMe {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     text-align: left;
     padding: 4rem 2rem;
     max-width: 900px;
     margin: 0 auto;
+}
+
+#about {
+    width: 100%;
 }
 
 #aboutMe h1 {
@@ -160,13 +169,15 @@ main {
 
 /* Projects Section */
 .tableofcontents {
-    background-color: rgba(20, 20, 20, 0.5);
+    background-color: rgba(20, 20, 20, 0.7);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     margin: 6rem auto;
-    padding: 4rem 2rem;
-    max-width: 1400px;
+    padding: 4rem 3rem;
+    max-width: 1600px;
+    width: 95%;
+    box-sizing: border-box;
 }
 
 .tableofcontents h3 {
@@ -178,88 +189,95 @@ main {
     letter-spacing: -0.5px;
 }
 
-#tocList a {
-    display: block;
-    color: #b0b0b0;
-    text-decoration: none;
-    margin: 0.5rem 0;
-    transition: color 0.3s ease;
-}
-
-#tocList a:hover {
-    color: #ffffff;
+#toc {
+    display: none;
 }
 
 .carousel-wrapper {
-    margin-top: 2rem;
+    margin-top: 0;
 }
 
 .slideshow-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+#awardsContainer {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 30px;
-    padding: 2rem 1rem;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-}
-
-.slideshow-container::-webkit-scrollbar {
-    height: 8px;
-}
-
-.slideshow-container::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.slideshow-container::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-}
-
-.slideshow-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-start;
 }
 
 .project {
-    flex: none;
+    position: relative;
     width: 100%;
-    max-width: 500px;
-    min-width: 350px;
-    scroll-snap-align: center;
-    background: linear-gradient(135deg, rgba(30, 30, 30, 0.8), rgba(20, 20, 20, 0.8));
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, rgba(15, 52, 96, 0.4), rgba(22, 33, 62, 0.4));
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 16px;
-    padding: 2rem;
-    margin: 0 10px;
+    overflow: hidden;
     transition: all 0.4s ease;
     cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.project-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.3) 100%);
+    transition: background 0.4s ease;
+}
+
+.project-content {
+    position: relative;
+    z-index: 1;
+    padding: clamp(1rem, 3vw, 2rem);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
 }
 
 .project h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
     color: #ffffff;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    opacity: 1;
 }
 
 .project p {
-    color: #b0b0b0;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-}
-
-.project a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 2px solid #ffffff;
-    padding-bottom: 2px;
-    transition: opacity 0.3s ease;
-}
-
-.project a:hover {
-    opacity: 0.7;
+    color: #f0f0f0;
+    line-height: 1.5;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease, max-height 0.4s ease;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .project:hover {
@@ -268,14 +286,63 @@ main {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
+.project:hover .project-image {
+    transform: scale(1.05);
+}
 
+.project:hover .project-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.4) 100%);
+}
 
+.project:hover p {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 70%;
+}
+
+/* Awards - floating gallery with varied sizes */
+#awardsContainer .project {
+    flex: 1 1 calc(33.333% - 1rem);
+    min-width: 280px;
+    aspect-ratio: auto;
+    height: auto;
+    background: linear-gradient(135deg, rgba(15, 52, 96, 0.3), rgba(22, 33, 62, 0.3));
+    transition: all 0.3s ease;
+}
+
+#awardsContainer .project:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+#awardsContainer .project-content {
+    padding: 1.5rem;
+    position: static;
+}
+
+#awardsContainer .project h3 {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 0.75rem;
+    opacity: 1;
+    color: #ffffff;
+}
+
+#awardsContainer .project p {
+    font-size: clamp(0.6rem, 1.5vw, 0.75rem);
+    line-height: 1.6;
+    padding: .6rem;
+    opacity: 1;
+    max-height: none;
+    transform: translateY(0);
+    color: #d0d0d0;
+    overflow-wrap: break-word;
+}
 
 /* Contact Section */
 #contact {
-    background-color: rgba(20, 20, 20, 0.5);
+    background-color: rgba(20, 20, 20, 0.7);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     margin: 6rem auto;
     padding: 4rem 2rem;
@@ -318,12 +385,37 @@ footer a:hover {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
+    #tspCanvas {
+        display: none !important;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+
+    nav {
+        padding: 1rem 0;
+    }
+
     nav ul {
-        gap: 1.5rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0 10px;
     }
 
     nav a {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    #aboutMe {
+        padding: 3rem 1rem;
+        min-height: auto;
     }
 
     #aboutMe h1 {
@@ -334,38 +426,159 @@ footer a:hover {
         font-size: 1rem;
     }
 
-    .tableofcontents h3,
-    #contact h2 {
-        font-size: 2rem;
+    .social-links {
+        flex-wrap: wrap;
+        justify-content: flex-start;
     }
 
-    .tableofcontents,
+    .tableofcontents {
+        padding: 2rem 1rem;
+        margin: 3rem 0;
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .tableofcontents h3,
+    #contact h2 {
+        font-size: 1.75rem;
+    }
+
     #contact {
         padding: 2rem 1rem;
-        margin: 3rem auto;
+        margin: 3rem 0;
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .slideshow-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    #awardsContainer {
+        flex-direction: column;
     }
 
     .project {
-        min-width: 280px;
-        max-width: 400px;
+        aspect-ratio: 4 / 3;
+    }
+
+    #awardsContainer .project {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+
+    .project-content {
+        padding: 1.5rem;
+    }
+
+    .project h3 {
+        font-size: 1.25rem;
+    }
+
+    .project p {
+        font-size: 0.9rem;
+    }
+
+    #awardsContainer .project h3 {
+        font-size: 1.15rem;
+    }
+
+    #awardsContainer .project p {
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 0 8px;
+    }
+
     nav ul {
-        gap: 1rem;
+        gap: 0.5rem;
+        padding: 0 8px;
     }
 
     nav a {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.85rem;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.75rem;
     }
 
     #aboutMe {
-        padding: 2rem 1rem;
+        padding: 2rem 0.5rem;
     }
 
     #aboutMe h1 {
         font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #aboutMe p {
+        font-size: 0.95rem;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .tableofcontents h3,
+    #contact h2 {
+        font-size: 1.5rem;
+    }
+
+    .tableofcontents,
+    #contact {
+        margin: 2rem 0;
+        padding: 1.5rem 0.75rem;
+        width: calc(100% - 16px);
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .slideshow-container {
+        gap: 2rem;
+    }
+
+    #awardsContainer {
+        gap: 1rem;
+    }
+
+    .project {
+        aspect-ratio: 4 / 3;
+        
+    }
+
+    #awardsContainer .project {
+        flex: 1 1 100%;
+        min-width: 100%;
+    }
+
+    .project-content {
+        padding: 1.5rem;
+    }
+
+    #awardsContainer .project-content {
+        padding: 1.5rem;
+    }
+
+    .project h3 {
+        font-size: 1.1rem;
+    }
+
+    .project p {
+        font-size: 0.75rem;
+    }
+
+    #awardsContainer .project h3 {
+        font-size: 1rem;
+    }
+
+    #awardsContainer .project p {
+        font-size: 0.75rem;
+        padding: .6rem;
+
     }
 }
