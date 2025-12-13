@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyQ Garage Door Opener Via Segmentation model - Ezra Schwartz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ProjectStyle.css">
+</head>
+<body>
+    <canvas id="tspCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
+
+    <header>
+
+        <nav>
+            <ul class="container">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#top">Project Details</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section id="project" class="project-details">
+            <h1 class="main-title"> MyQ Garage Door Opener Via Segmentation model </h1>
+            <figure>
+                <div class="image-wrapper">
+                  <img src="frame_00002.png" alt="Car in driveway" class="project-image">
+                </div>
+                <figcaption>MyQ Garage Door Segmentation</figcaption>
+              </figure>
+
+              <p class="project-description">
+I built an automated MyQ garage door system that uses real-time computer vision to operate hands-free. A segmentation model first detects the presence of a vehicle in the camera feed, isolating it from the background. Once a vehicle is detected, a ResNet-based classification model identifies the specific car. If the detected car matches an authorized vehicle, an ESP32 microcontroller is triggered to actuate a servo motor that physically presses the garage door button. This system combines deep learning, embedded systems, and mechanical actuation to create a secure, low-latency, and fully automated garage door opener without modifying the existing MyQ hardware.
+            </p>
+
+              <div class="info-section">
+                <h2>Key Features</h2>
+                <ul>
+                    <li>Specific Cars have open different doors</li>
+                    <li>Plans to incorperate driver location so that it is not soley based on car recogntion</li>
+                </ul>
+
+                <h2>Technologies Used</h2>
+                <ul>
+                    <li>Segmentation Networks</li>
+                    <li>ESP32 CircuitPython</li>
+                    <li>Python and PyTorch: Programming framework for model development</li>
+                    <li>Classification Networks</li>
+                </ul>
+
+                <div class="github-link">
+                    <a href="https://github.com/EzrSchwartz/CarMyQ">View Project on GitHub</a>
+                </div>
+              </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/ezra-schwartz-64213b2ba/">LinkedIn</a> | <a href="https://github.com/EzrSchwartz">GitHub</a></p>
+    </footer>
+        <script src="tspanimation.js"></script>
+    </body>
+</html>

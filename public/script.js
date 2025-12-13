@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
             link: 'CyclingPowerService.html',
             image: 'BLEPowermeter.jpg'
         },
-        // {
-        //     id: 'project3',
-        //     name: 'Global Social Media Discourse, How should we regulate',
-        //     description: 'This project is for My ECE English course on exploring new discourses. It focuses on how we should aproach regulating social media platforms. In this project, I worked on researching different viewpoints on how to regulate social media and presented my findings in a website. We focus on how the world has varrying laws but social media isnt regulated the same way everywhere.',
-        //     link: 'socialmedia.html'
-        // },
+        {
+            id: 'project3',
+            name: 'MyQ Garage Door Opener Via Segmentation model',
+            description: 'This project is a system to automatically open the proper garage door when it recognizes a specific car. This project uses a camera to take a picture of the car, then uses a segmentation model to identify the make and model of the car. Once the car is identified, the system sends a signal to the button presser to open the proper garage door.',
+            link: 'MYQ.html'
+        },
         {
             id: 'project4',
             name: 'Decentralized Ground Sensing Network',
