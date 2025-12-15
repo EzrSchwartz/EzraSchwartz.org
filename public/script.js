@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'project3',
             name: 'MyQ Garage Door Opener Via Segmentation model',
             description: 'This project is a system to automatically open the proper garage door when it recognizes a specific car. This project uses a camera to take a picture of the car, then uses a segmentation model to identify the make and model of the car. Once the car is identified, the system sends a signal to the button presser to open the proper garage door.',
-            link: 'MYQ.html'
+            link: 'MYQ.html',
+            image: 'frame_00002.png'
         },
         {
             id: 'project4',
@@ -87,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const projects = [
         {
             id: 'award1',
-            name: 'AutoShift Pattent',
+            name: 'AutoShift Patent',
             description: 'Obtained a patent for the AutoShift project, which is an innovative system that automatically shifts gears on a bicycle based on real-time data and machine learning algorithms. This patent recognizes the unique approach and technology used in the AutoShift system. All of the patent filing process was done without a lawyer, and I was able to successfully file and obtain the patent on my own.',
            
         },
@@ -114,11 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'Lockheed Martin Cybersecurity Competition',
             description: 'Won 1st place in the Lockheed Martin Cybersecurity Competition. This competition involved solving various cybersecurity challenges and puzzles. I was able to demonstrate my skills in cybersecurity and problem-solving to win first place in the competition.',
       },
-        // {
-        //     id: 'award6',
-        //     name: 'Detecting RTC tears from MRI Scans',
-        //     description: 'This project involved using machine learning to detect rotator cuff tears from MRI scans. I worked on data preprocessing, model training, and evaluation to achieve accurate detection results.',
-        // }
+        {
+            id: 'award6',
+            name: 'CyberPatriot round 1, 3rd in the world',
+            description: 'Placed 3rd in the world in round 1 of the CyberPatriot competition. This competition involves securing and defending computer systems from cyber attacks. I was able to demonstrate my skills in cybersecurity and problem-solving to lead my team to placing 3rd in the world in round 1 of the competition. We are continuing to compete in the competition and hope to place even higher in future rounds.',
+        }
 
 
     ];
@@ -130,8 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
             projectsContainer.appendChild(createAwardElement(project));
 
 
-
-            
             // Generate ToC link for the project
             const tocLink = document.createElement('li');
             tocLink.innerHTML = `<a href=" #${project.link}">${project.name}</a>`;
