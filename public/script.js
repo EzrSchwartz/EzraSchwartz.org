@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'project4',
-            name: 'Vissualizing Deforestation with GEE',
+            name: 'Visualizing Deforestation with GEE',
             description: 'This project is using GEE (Google Earth Engine) to visualize on a map where deforestation has been prevaliant and how bad it is in areas of the world. I worked on this project to understand how to use GEE and to learn how you can use satalite images to creat visuals in a new way.',
             link: 'VDE.html',
             image: 'Screenshot 2024-04-08 210146.png'
