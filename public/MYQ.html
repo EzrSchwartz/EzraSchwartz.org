@@ -33,7 +33,7 @@
               </figure>
 
               <p class="project-description">
-I built an automated MyQ garage door system that uses real-time computer vision to operate hands-free. A segmentation model first detects the presence of a vehicle in the camera feed, isolating it from the background. Once a vehicle is detected, a ResNet-based classification model identifies the specific car. If the detected car matches an authorized vehicle, an ESP32 microcontroller is triggered to actuate a servo motor that physically presses the garage door button. This system combines deep learning, embedded systems, and mechanical actuation to create a secure, low-latency, and fully automated garage door opener without modifying the existing MyQ hardware.
+I built an automated MyQ garage door system that uses real-time computer vision to operate hands-free. A segmentation model first detects the presence of a vehicle in the camera feed, isolating it from the background. Once a vehicle is detected, a ResNet-based classification model identifies the specific car. If the detected car matches an authorized vehicle, an ESP32 microcontroller is triggered to actuate a servo motor that physically presses the garage door button. This system combines deep learning, embedded systems, and mechanical actuation to create a secure, low-latency, and fully automated garage door opener without modifying the existing MyQ hardware. In addition to this, I added a version which usees wifi networks betwee microcontrollers to detect when my car arrives so that it is more reliable without the use of computer vision.
             </p>
 
               <div class="info-section">
