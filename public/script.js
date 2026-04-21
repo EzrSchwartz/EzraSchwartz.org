@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'project3',
-            name: 'MyQ Garage Door Opener Via Segmentation model',
+            name: 'MyQ Garage Door Opener Via Segmentation Model',
             description: 'This project is a system to automatically open the proper garage door when it recognizes a specific car. This project uses a camera to take a picture of the car, then uses a segmentation model to identify the make and model of the car. Once the car is identified, the system sends a signal to the button presser to open the proper garage door.',
             link: 'MYQ.html',
             image: 'frame_00002.png'
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'project4',
             name: 'Visualizing Deforestation with GEE',
-            description: 'This project is using GEE (Google Earth Engine) to visualize on a map where deforestation has been prevaliant and how bad it is in areas of the world. I worked on this project to understand how to use GEE and to learn how you can use satalite images to creat visuals in a new way.',
+            description: 'This project is using GEE (Google Earth Engine) to visualize on a map where deforestation has been prevalent and how bad it is in areas of the world. I worked on this project to understand how to use GEE and to learn how you can use satellite images to create visuals in a new way.',
             link: 'VDE.html',
             image: 'Screenshot 2024-04-08 210146.png'
         },
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //     link: 'index.html'},
         {
             id: 'project6',
-            name: 'Detecting RTC tears from MRI Scans',
+            name: 'Detecting RTC Tears from MRI Scans',
             description: 'This project involved using machine learning to detect rotator cuff tears from MRI scans. I worked on data preprocessing, model training, and evaluation to achieve accurate detection results.',
             link: 'MRIAI.html',
             image: 'RotatorCuffMRI.png'
@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const projects = [
         {
             id: 'award1',
-            name: 'AutoShift Patent',
-            description: 'Obtained a patent for the AutoShift project, which is an innovative system that automatically shifts gears on a bicycle based on real-time data and machine learning algorithms. This patent recognizes the unique approach and technology used in the AutoShift system. All of the patent filing process was done without a lawyer, and I was able to successfully file and obtain the patent on my own.',
+            name: 'AutoShift Provisional Patent',
+            description: 'Obtained a provisional patent for the AutoShift project, which is an innovative system that automatically shifts gears on a bicycle based on real-time data and machine learning algorithms. This patent recognizes the unique approach and technology used in the AutoShift system. All of the patent filing process was done without a lawyer, and I was able to successfully file and obtain the patent on my own.',
            
         },
         {
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             id: 'award3',
-            name: 'CTSTEM for Labrum tear research',
+            name: 'CTSTEM for Labrum Tear Research',
             description: 'Third in the CTSTEM competition for my research proposal on using machine learning to detect labrum tears from MRI scans. This project involved data preprocessing, model training, and evaluation to achieve accurate detection results. I presented my findings at the CTSTEM competition and was awarded third place for my work in healthcare research.',
      
         },
@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: 'CyberPatriot round 1, 3rd in the world',
             description: 'Placed 3rd in the world in round 1 of the CyberPatriot competition. This competition involves securing and defending computer systems from cyber attacks. I was able to demonstrate my skills in cybersecurity and problem-solving to lead my team to placing 3rd in the world in round 1 of the competition. We are continuing to compete in the competition and hope to place even higher in future rounds.',
         }
+        
 
 
     ];
